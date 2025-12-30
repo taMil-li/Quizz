@@ -20,7 +20,7 @@ const WriteExam = () => {
 
     const fetchExam = async () => {
       try {
-        const resp = await fetch(`http://localhost:5000/exam/${examId}`, {
+        const resp = await fetch(`https://quizz-backend-tadh.onrender.com/exam/${examId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${jwt}`, 
@@ -56,7 +56,7 @@ const WriteExam = () => {
   const handleStart = async () => {
     if (!jwt) return navigate("/login");
     try {
-      const resp = await fetch(`http://localhost:5000/start-exam/${examId}`, {
+      const resp = await fetch(`https://quizz-backend-tadh.onrender.com/start-exam/${examId}`, {
         method: "POST",
         headers: { Authorization: `Bearer ${jwt}`, "Content-Type": "application/json" },
       });
@@ -72,7 +72,7 @@ const WriteExam = () => {
       } else {
         if (data.error === "Already started") {
           // recover attempt id
-          const r = await fetch(`http://localhost:5000/attempt/${examId}`, {
+          const r = await fetch(`https://quizz-backend-tadh.onrender.com/attempt/${examId}`, {
             method: "GET",
             headers: { Authorization: `Bearer ${jwt}`, "Content-Type": "application/json" },
           });
@@ -110,7 +110,7 @@ const WriteExam = () => {
   const handleSubmit = async () => {
     if (!attemptId) return alert("Please start the exam first");
     try {
-      const resp = await fetch(`http://localhost:5000/submit-exam/${attemptId}`, {
+      const resp = await fetch(`https://quizz-backend-tadh.onrender.com/submit-exam/${attemptId}`, {
         method: "POST",
         headers: { Authorization: `Bearer ${jwt}`, "Content-Type": "application/json" },
         body: JSON.stringify({ answers }),

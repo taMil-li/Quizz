@@ -19,7 +19,7 @@ const Signup = () => {
   useEffect(() => {
     const verifyToken = async () => {
       if (jwt) {
-        const resp = await fetch("http://localhost:5000/jwt/verify-token", {
+        const resp = await fetch("https://quizz-backend-tadh.onrender.com/jwt/verify-token", {
           method: "GET",
           headers: { authorization: jwt },
         });
@@ -78,7 +78,7 @@ const Signup = () => {
         body: JSON.stringify(data),
       };
 
-      const resp = await fetch("http://localhost:5000/auth/signup", options);
+      const resp = await fetch("https://quizz-backend-tadh.onrender.com/auth/signup", options);
       const res = await resp.json();
       if (resp.ok) {
         setStatus(form.SUCCESS);

@@ -28,7 +28,7 @@ const Login = () => {
   useEffect(() => {
     const verifyToken = async () => {
       if (jwt) {
-        const resp = await fetch("http://localhost:5000/jwt/verify-token", {
+        const resp = await fetch("https://quizz-backend-tadh.onrender.com/jwt/verify-token", {
           method: "GET",
           headers: { authorization: jwt },
         });
@@ -74,7 +74,7 @@ const Login = () => {
       body: JSON.stringify(data),
     };
     try {
-      const resp = await fetch("http://localhost:5000/auth/login", options);
+      const resp = await fetch("https://quizz-backend-tadh.onrender.com/auth/login", options);
       const res = await resp.json();
 
       if (resp.ok && res.jwt_token) {

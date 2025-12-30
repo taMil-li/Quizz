@@ -29,7 +29,7 @@ const StudentDashboard = () => {
     const verifyToken = async () => {
       if (!jwt || jwt === undefined) navigate("/login");
       else {
-        const resp = await fetch("http://localhost:5000/jwt/verify-token", {
+        const resp = await fetch("https://quizz-backend-tadh.onrender.com/jwt/verify-token", {
           method: "GET",
           headers: { authorization: jwt },
         });
@@ -88,7 +88,7 @@ const StudentDashboard = () => {
       };
 
       const resp = await fetch(
-        "http://localhost:5000/dashboard/student",
+        "https://quizz-backend-tadh.onrender.com/dashboard/student",
         options
       );
       const res = await resp.json();

@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     const verifyToken = async () => {
       if (!jwt) return;
       try {
-        const resp = await fetch("http://localhost:5000/jwt/verify-token", {
+        const resp = await fetch("https://quizz-backend-tadh.onrender.com/jwt/verify-token", {
           method: "GET",
           headers: { authorization: jwt },
         });
