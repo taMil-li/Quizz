@@ -6,6 +6,10 @@ const { Worker, workerData } = require("worker_threads");
 const path = require("path");
 require("dotenv").config();
 
+if (!process.env.JWT_SECRET) {
+  console.warn("Warning: JWT_SECRET is not set. Using default secret may be insecure in production.");
+}
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -24,6 +28,10 @@ const ITER_COUNT = 12;
 // Helper Functions
 
 const initMongo = async () => {
+  if (!process.env.MONGODB_URI) {
+    throw new Error('MONGODB_URI is not set. Please set it in backend/.env or environment variables.');
+  }
+
   const client = new MongoClient(process.env.MONGODB_URI);
   await client.connect();
 
