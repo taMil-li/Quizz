@@ -24,11 +24,11 @@ dist-ssr
 *.sw?
 
 # Dependency directories
-node_modules/
-jspm_packages/
 .pnp
 .pnp.js
+backend/node_modules
+backend/dist
 
-./backend/node_modules
-./backend/dist
-./backend/.env
+# Environment variables
+.env
+backend/.env
