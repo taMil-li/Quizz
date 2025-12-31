@@ -218,6 +218,7 @@ const AdminDashboard = () => {
         updatedQuizList[index] = updatedExam;
         setQuizList(updatedQuizList);
         setIsWorking(false);
+        getExams();
         alert("Exam created successfully");
       } else {
         alert(data.error || "Failed to create exam");
