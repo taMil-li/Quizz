@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import "./index.css";
 import "./App.css";
@@ -13,10 +13,10 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <div className="site-container">
       <AuthProvider>
-        <HashRouter>
+        <BrowserRouter>
           <Header />
           <App />
-        </HashRouter>
+        </BrowserRouter>
       </AuthProvider>
     </div>
   </StrictMode>
