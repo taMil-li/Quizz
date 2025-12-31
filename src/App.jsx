@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./components/Header.jsx";
 import Home from "./components/Home.jsx";
@@ -25,7 +25,7 @@ function App() {
             <Route path="/dashboard/admin" element={<AdminDashboard />} />
             <Route path="/dashboard/student" element={<StudentDashboard />} />
             <Route path="/exam/write/:examId" element={<WriteExam />} />
-            <Route path="*" element={<h1>404 Not Found</h1>} />
+            <Route path="*" element={<Navigate to='/' replace />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
