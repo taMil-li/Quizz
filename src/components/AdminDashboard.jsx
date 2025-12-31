@@ -271,6 +271,7 @@ const AdminDashboard = () => {
           {!isWorking ? (
             <>
               <section className="overall-details d-flex">
+                {user && user.name && <small>Welcome, {user.name}</small>}
                 <div className="overall-card">
                   <p className="overall-text-p">Total Exams</p>
                   <h4 className="overall-text-h4">{data.dashboard.length}</h4>

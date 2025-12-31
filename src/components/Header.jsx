@@ -1,8 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
+import { MdLogout } from "react-icons/md";
 
 import "../App.css";
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext.jsx";
+
+import logo from '../assets/quizz-logo.jpeg';
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -16,6 +19,7 @@ const Header = () => {
   };
 
   const handleLogout = () => {
+    // prompt("Are you sure you want to logout?");
     logout();
     navigate("/");
   }
@@ -23,7 +27,7 @@ const Header = () => {
   return (
     <header className="header">
       <a className="logo" href="/">
-        qui<span className="mid">z</span>z
+        <img src={logo} alt="logo" className="logo-img" />
       </a>
 
       {!user && (
@@ -44,9 +48,10 @@ const Header = () => {
       <div className="profile d-flex">
         <div className="profie-section d-flex flex-column">
           <img src="https://res.cloudinary.com/dd7ec5m1r/image/upload/v1766657859/profile_img_lwtbgm.jpg" alt="profile" className="profile-img"/>
-          <span className="profile-name">{user.name}</span>
+          {/* <span className="profile-name">{user.name}</span> */}
         </div>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        {/* <button className="logout-btn big-screen" onClick={handleLogout}>Logout</button> */}
+        <button className="logout-btn-mini" onClick={handleLogout}><MdLogout /></button>
       </div>
       )}
     </header>

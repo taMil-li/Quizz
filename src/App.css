@@ -65,6 +65,13 @@ button {
   cursor: pointer;
 }
 
+.logo-img {
+  height: 40px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
 .logo .mid {
   font-size: 30px;
 }
@@ -129,6 +136,17 @@ button {
   background-color: var(--red);
   color: var(--white);
   font-size: x-small;
+}
+
+.logout-btn-mini {
+  align-self: center;
+  margin-left: 1rem;
+  border: 1.5px solid var(--white);
+  padding: .2rem 0 0 .2rem;
+  border-radius: .4rem;
+  background-color: transparent;
+  color: var(--white);
+  font-size: x-large;
 }
 
 @media (max-width: 768px) {
