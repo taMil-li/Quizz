@@ -163,8 +163,8 @@ button {
     display: none;
     flex-direction: column;
     background-color: var(--white);
-    /* position: absolute; */
-    /* right: 10px; */
+    position: fixed;
+    right: 10px;
     top: 10px;
     width: 50%;
     border-radius: 20px;
