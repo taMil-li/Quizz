@@ -231,29 +231,26 @@ const AdminDashboard = () => {
   const timersRef = useRef({});
   const [copiedMap, setCopiedMap] = useState({});
 
-  const copyUrl = async (examId) => {
-    const examUrl = `http://localhost:5173/exam/write/${examId}`;
+ const copyUrl = async (examId) => {
+  const examUrl = `${window.location.origin}/exam/write/${examId}`;
 
-    setCopiedMap((prev) => ({ ...prev, [examId]: true }));
+  setCopiedMap((prev) => ({ ...prev, [examId]: true }));
 
-    // clear any previous timer for this exam
-    if (timersRef.current[examId]) clearTimeout(timersRef.current[examId]);
+  if (timersRef.current[examId]) clearTimeout(timersRef.current[examId]);
 
-    try {
-      await navigator.clipboard.writeText(examUrl);
+  try {
+    await navigator.clipboard.writeText(examUrl);
 
-      // keep tick for 2 seconds
-      timersRef.current[examId] = setTimeout(() => {
-        setCopiedMap((prev) => ({ ...prev, [examId]: false }));
-        delete timersRef.current[examId];
-      }, 2000);
-    } catch (err) {
-      console.error("Clipboard copy failed", err);
-      // revert tick immediately
+    timersRef.current[examId] = setTimeout(() => {
       setCopiedMap((prev) => ({ ...prev, [examId]: false }));
-      alert("Failed to copy URL. Please try manually.");
-    }
+      delete timersRef.current[examId];
+    }, 2000);
+  } catch (err) {
+    console.error("Clipboard copy failed", err);
+    setCopiedMap((prev) => ({ ...prev, [examId]: false }));
+    alert("Failed to copy URL");
   }
+};
 
   useEffect(() => {
     return () => {
