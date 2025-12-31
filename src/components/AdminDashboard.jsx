@@ -232,7 +232,7 @@ const AdminDashboard = () => {
   const [copiedMap, setCopiedMap] = useState({});
 
  const copyUrl = async (examId) => {
-  const examUrl = `${window.location.origin}/#/exam/write/${examId}`;
+  const examUrl = `${window.location.origin}/exam/write/${examId}`;
 
   setCopiedMap((prev) => ({ ...prev, [examId]: true }));
 

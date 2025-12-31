@@ -138,7 +138,7 @@ const StudentDashboard = () => {
                       {exam.status !== "SUBMITTED" && (
                         <a
                           className="view-exam-text"
-                          href={`/#/exam/write/${exam.examId}`}
+                          href={`/exam/write/${exam.examId}`}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
